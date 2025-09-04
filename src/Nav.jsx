@@ -34,7 +34,7 @@ function Nav({ onNavClick, currentDataID }) {
         <div className="stick" id="stick3"></div>
       </div>
       <div className="nav-logo" id="nav-logo" onClick={handleItemClick}>
-        <img className="nav-logo-img" alt="logo" src="./assets/logo.png" />
+        <img className="nav-logo-img" alt="logo" src="/assets/logo.png" />
         <h1>FRI UNIZA</h1>
       </div>
       <div className="nav-items">
