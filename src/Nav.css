@@ -4,6 +4,14 @@
     flex-direction: column;
     color: #ffffff71;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    position: relative;
+    z-index: 100;
+}
+
+.nav.translate {
+    transform: translateX(0rem);
 }
 
 
@@ -50,6 +58,7 @@
     transform: translateY(-11.5px) rotate(-45deg);
 }
 
+
 .burger-menu:hover {
     cursor: pointer;
 }
@@ -65,6 +74,11 @@
     border-bottom: 1px solid #ffffff1a;
     margin-bottom: 1rem;
 }
+
+.nav-logo:hover {
+    cursor: pointer;
+}
+
 .nav-logo-img {
     width: 3rem;
 }
@@ -99,11 +113,14 @@
 }
 
 
+
+
 @media (max-width: 768px) {
   .nav {
     transform: translateX(-15rem);
   }
   .burger-menu-container {
     visibility: visible;
+    transform: translateX(5rem);
   }
 }

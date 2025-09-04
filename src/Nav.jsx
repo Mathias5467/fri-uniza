@@ -9,6 +9,7 @@ function Nav({ onNavClick, currentDataID }) {
   };
 
   const [burgerMenuClassName, setBurgerMenuClassName] = useState("burger-menu-container");
+  const [navClassName, setNavClassName] = useState("nav");
 
   const burgerClick = () => {
     setBurgerMenuClassName((prev) =>
@@ -16,18 +17,23 @@ function Nav({ onNavClick, currentDataID }) {
         ? "burger-menu-container active-menu"
         : "burger-menu-container"
     );
+    setNavClassName((prev) =>
+      prev === "nav"
+        ? "nav translate"
+        : "nav"
+    );
   };
 
   return (
 
-    <div className="nav">
+    <div className={navClassName} id="nav">
       <div className= {burgerMenuClassName} 
       id="burger" onClick={burgerClick}>
         <div className="stick" id="stick1"></div>
         <div className="stick" id="stick2"></div>
         <div className="stick" id="stick3"></div>
       </div>
-      <div className="nav-logo">
+      <div className="nav-logo" id="nav-logo" onClick={handleItemClick}>
         <img className="nav-logo-img" alt="logo" src="src/assets/logo.png" />
         <h1>FRI UNIZA</h1>
       </div>

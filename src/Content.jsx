@@ -54,46 +54,52 @@ function Content({ subjectsData }) {
         ) : error ? (
           <p className="text-red-500">{error}</p>
         ) : subjects.length > 0 ? (
-          <table className="data-table">
-            <thead className="bg-gray-50">
-              <tr>
-                <th scope="col">Predmet</th>
-                <th scope="col">Skratka</th>
-                <th scope="col">Typ</th>
-                <th scope="col">Kredity</th>
-                <th scope="col">Poznámky</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {subjects.map((subject, index) => (
-                <tr key={index}>
-                  <td>{subject.Predmet}</td>
-                  <td>{subject.Skratka}</td>
-                  <td>{subject.Typ}</td>
-                  <td>{subject.Kredity}</td>
-                  <td className="notes-cell">{subject.Poznamky}</td>
-                  <td className="edit">
-                    <img className="edit-icon" alt="edit" src={editLogo} />
-                  </td>
+          <div className="table-div">
+            <h2 className="table-header">Predmety</h2>
+            <table className="data-table">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th scope="col">Predmet</th>
+                  <th scope="col">Skratka</th>
+                  <th scope="col">Typ</th>
+                  <th scope="col">Kredity</th>
+                  <th scope="col">Poznámky</th>
+                  <th scope="col"></th>
                 </tr>
-              ))}
-            </tbody>
-            <tfoot>
-              <tr>
-                <td><strong>Spolu</strong></td>
-                <td colSpan={2}></td>
-                <td><strong>{totalKredity}</strong></td>
-                <td colSpan={2}></td>
-              </tr>
-            </tfoot>
-          </table>
+              </thead>
+              <tbody>
+                {subjects.map((subject, index) => (
+                  <tr key={index}>
+                    <td>{subject.Predmet}</td>
+                    <td>{subject.Skratka}</td>
+                    <td>{subject.Typ}</td>
+                    <td>{subject.Kredity}</td>
+                    <td className="notes-cell">{subject.Poznamky}</td>
+                    <td className="edit">
+                      <img className="edit-icon" alt="edit" src={editLogo} />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td><strong>Spolu</strong></td>
+                  <td colSpan={2}></td>
+                  <td><strong>{totalKredity}</strong></td>
+                  <td colSpan={2}></td>
+                </tr>
+              </tfoot>
+            </table>
+            <div className="add-button-div">
+              <div className="add-button">
+                <h2>+</h2>
+              </div>
+            </div>
+          </div>
         ) : (
           <p>No subjects found in the JSON data.</p>
         )}
-        <div className="add-button">
-          <h2>+</h2>
-        </div>
+        
       </div>
     );
   } else {

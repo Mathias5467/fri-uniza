@@ -2,33 +2,24 @@
     width: 100%;
     height: 100%;
     color: #ffffff;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-@keyframes backgroundAnimation {
-  
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-  background-position: 0% 65%;
-  }
-  50% {
-    background-position: 0% 80%;
-  }
-  75% {
-    background-position: 0% 65%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.table-div {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.table-header {
+  font-size: 2rem;
+  text-align: center;
+  margin-block: 2rem; 
 }
 
-
-
 .loading-div {
-  background-image: linear-gradient(#181818, 90%, #ba8b1cb9);
   font-size: 2rem;
   display: grid;
   font-weight: 600;
@@ -36,18 +27,17 @@
   text-align: center;
   justify-items: center;
   height: inherit;
-  background-size: 200% 200%;
-  animation: backgroundAnimation 5s ease-in-out infinite;
 }
 
 table {
+  place-self: center;
   background-color: #181818;
   box-shadow: 0px 0px 10px #ffffff30;
   width: 70%;
   margin-inline: 15%;
   transition: 0.3s;
   border-collapse: collapse;
-  
+  box-sizing: border-box;
 }
 
 tr {
@@ -80,8 +70,12 @@ th, td {
   text-overflow: ellipsis;
 }
 
+.add-button-div {
+  width: 70%;
+  margin-inline: 15%;
+  margin-block: 1.5rem;
+}
 .add-button {
-  position: fixed;
   bottom: 2rem;
   right: 2rem;
   width: 3.5rem;
@@ -93,10 +87,21 @@ th, td {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  user-select: none;
+  place-self: flex-end;
 }
 
 .add-button > h2 {
   margin-top: -0.9rem;
   font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    transform: translateX(-15rem);
+    width: 100%;
+  }
+  table, .add-button-div {
+    width: 85%;
+    margin-inline: calc(15%/2);
+  }
 }
