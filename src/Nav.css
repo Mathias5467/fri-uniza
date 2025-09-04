@@ -1,0 +1,109 @@
+.nav {
+    background: #181818;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff71;
+    text-align: center;
+}
+
+
+/* Burger Menu Container */
+.burger-menu-container {
+    width: 3.5rem;
+    height: 3rem;
+    position: absolute;
+    background: #181818;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.4rem 0.2rem;
+    box-sizing: border-box;
+    border: 1px solid #ba8b1c;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    right: 1rem;
+    top: 0.8rem;
+    visibility: hidden;
+}
+
+/* The sticks */
+.stick {
+    width: 90%;
+    height: 0.4rem;
+    background: #ba8b1c;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* State when clicked */
+.burger-menu-container.active-menu .stick:nth-child(1) {
+    transform: translateY(11.5px) rotate(45deg);
+}
+
+.burger-menu-container.active-menu .stick:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu-container.active-menu .stick:nth-child(3) {
+    transform: translateY(-11.5px) rotate(-45deg);
+}
+
+.burger-menu:hover {
+    cursor: pointer;
+}
+
+
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #ffffff1a;
+    margin-bottom: 1rem;
+}
+.nav-logo-img {
+    width: 3rem;
+}
+
+
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav-list > li {
+    font-size: 1.5rem;
+    transition: 0.4s;
+    padding: 0.2rem;
+    margin-block: 0.2rem;
+}
+
+.nav-list > li:hover {
+    background-color: #ba8b1c30; 
+    cursor: pointer;
+}
+
+.bc-section > h2, .ing-section > h2 {
+    color: #ba8b1c;
+    padding-block: 0.2rem;
+    margin: 0.5rem;
+}
+.active {
+    background: #ba8b1ca0;
+    color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+  .nav {
+    transform: translateX(-15rem);
+  }
+  .burger-menu-container {
+    visibility: visible;
+  }
+}
