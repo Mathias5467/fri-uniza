@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Nav.css';
+import logo from './assets/logo.png'
 
 function Nav({ onNavClick, currentDataID }) {
   
@@ -34,7 +35,7 @@ function Nav({ onNavClick, currentDataID }) {
         <div className="stick" id="stick3"></div>
       </div>
       <div className="nav-logo" id="nav-logo" onClick={handleItemClick}>
-        <img className="nav-logo-img" alt="logo" src="/fri-uniza/src/assets/logo.png" />
+        <img className="nav-logo-img" alt="logo" src={logo}/>
         <h1>FRI UNIZA</h1>
       </div>
       <div className="nav-items">

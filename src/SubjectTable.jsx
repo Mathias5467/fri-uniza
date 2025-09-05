@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import editLogo from './assets/edit.png';
-
+import plus from './assets/plus.png';
 function SubjectTable({ subjects, semester, title }) {
   const [sortOrder, setSortOrder] = useState('asc');
   const [sortedSubjects, setSortedSubjects] = useState(subjects);
@@ -175,7 +175,7 @@ function SubjectTable({ subjects, semester, title }) {
             <td colspan={5}></td>
             <td>
               <div className="add-button">
-                <img alt="plus" src="/fri-uniza/src/assets/plus.png"></img>
+                <img alt="plus" src={plus}></img>
               </div>
             </td>
           </tr>
