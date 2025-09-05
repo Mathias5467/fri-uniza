@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
 }
 
 .table-div {
@@ -13,6 +14,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .table-header {
   font-size: 2rem;
   text-align: center;
@@ -29,65 +31,36 @@
   height: inherit;
 }
 
-table {
-  place-self: center;
-  background-color: #181818;
-  box-shadow: 0px 0px 10px #ffffff30;
-  width: 70%;
-  margin-inline: 15%;
-  transition: 0.3s;
-  border-collapse: collapse;
-  box-sizing: border-box;
+.welcome-screen h1 {
+  margin-bottom: 1rem;
 }
 
-tr {
-  border-bottom: 1px solid #ffffff8a;
-}
-tr:hover {
-  background-color: #ffffff20;
-}
-
-th {
-  background-color: #ba8b1c;
-  color: #ffffffcb;
-}
-
-th, td {
-  padding: 0.5rem 1rem;
-  text-align: center;
+.welcome-screen p {
+  font-size: 1.2rem;
+  opacity: 0.8;
 }
 
 
-.edit-icon {
-  width: 1rem;
-}
-
-.notes-cell {
-  width: 200px;
-  max-width: 200px;
-  white-space: nowrap;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-}
-
-.add-button-div {
-  width: 70%;
-  margin-inline: 15%;
-  margin-block: 1.5rem;
-}
 .add-button {
-  bottom: 2rem;
-  right: 2rem;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2rem;
+  height: 2rem;
   background-color: #ba8b1c;
   color: white;
   display: grid;
   border-radius: 50%;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  place-self: flex-end;
+  transition: all 0.3s ease;
+  place-self: center;
+}
+.add-button > img {
+  width: 50%;
+  aspect-ratio: 1/1;
+  place-self: center;
+}
+
+.add-button:hover {
+  background-color: #a67a18;
+  transform: scale(1.05);
 }
 
 .add-button > h2 {
@@ -95,12 +68,19 @@ th, td {
   font-size: 3rem;
 }
 
+.text-red-500 {
+  color: #ef4444;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 768px) {
   .content {
     transform: translateX(-15rem);
     width: 100%;
   }
-  table, .add-button-div {
+  
+  .add-button-div {
     width: 85%;
     margin-inline: calc(15%/2);
   }

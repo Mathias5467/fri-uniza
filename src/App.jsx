@@ -3,26 +3,27 @@ import Nav from './Nav';
 import Content from './Content';
 
 function App() {
-  const [subjectsData, setSubjectsData] = useState([]);
+  const [subjectsDataWinter, setWinterSubjects] = useState([]);
+  const [subjectsDataSummer, setSummerSubjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [dataID, setDataID] = useState(""); // Default to bc1
+  const [dataID, setDataID] = useState("");
 
   useEffect(() => {
     const loadData = async () => {
       try {
         setIsLoading(true);
-        console.log(`Loading data from: ./data/${dataID}.json`); // Debug log
-        const module = await import(`./data/${dataID}.json`);
-        setSubjectsData(module.default);
-        console.log('Data loaded successfully:', module.default); // Debug log
+        const winterModule = await import(`./data/${dataID}Summer.json`);
+        const summerModule = await import(`./data/${dataID}Winter.json`);
+        setWinterSubjects(winterModule.default);
+        setSummerSubjects(summerModule.default);
       } catch (error) {
         console.error(`Failed to load data from ./data/${dataID}.json:`, error);
-        setSubjectsData([]);
+        setSummerSubjects([]);
+        setWinterSubjects([]);
       } finally {
         setIsLoading(false);
       }
     };
-
     loadData();
   }, [dataID]); // This will re-run whenever dataID changes
 
@@ -32,13 +33,13 @@ function App() {
   };
 
   if (isLoading) {
-    return <div className="loading">Loading {dataID} data...</div>;
+    return <div className="loading"></div>;
   }
 
   return (
     <div className="container">
       <Nav onNavClick={handleNavClick} currentDataID={dataID} />
-      <Content subjectsData={subjectsData} />
+      <Content winterData={subjectsDataWinter} summerData={subjectsDataSummer} />
     </div>
   );
 }
